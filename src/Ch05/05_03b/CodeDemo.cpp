@@ -16,6 +16,23 @@ int main(){
     std::cin >> operation;
 
     // switch goes here
+    switch (operation){ // switch is a logic loop that allows for evaluating specific cases until a break is specified, as well as a default outcome if none of the expected cases were found.
+        case '+':
+            result = operand_1 + operand_2;
+            break;
+        case '-':
+            result = operand_1 - operand_2;
+            break;
+        case '*':
+            result = operand_1 * operand_2;
+            break;
+        case '/':
+            result = operand_1 / operand_2;
+            break;
+        default:
+            result = operand_1 + operand_2;
+            break;
+    }
 
     std::cout << "The result is " << result << std::endl;
     
