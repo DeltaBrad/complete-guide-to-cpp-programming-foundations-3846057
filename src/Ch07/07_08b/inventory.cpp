@@ -16,24 +16,26 @@ Inventory::~Inventory(){
 }
 
 // Add item to inventory
-void Inventory::addItem(const std::string& item){
+Inventory& Inventory::operator+=(const std::string& item){ //changed type from void to Inventory& and changed addItem to operator+=
     if (items->size() < capacity)
         items->push_back(item);
     else
         std::cout << "Inventory is full, cannot add " << item << std::endl;
+    return *this; 
 }
 
 // Remove item from inventory
-void Inventory::removeItem(const std::string& item){
+Inventory& Inventory::operator-=(const std::string& item){
     auto it = std::find(items->begin(), items->end(), item);
     if (it != items->end())
         items->erase(it);
     else
         std::cout << "Item " << item << " not found in inventory" << std::endl;
+    return *this;
 }
 
 // Access item by index
-std::string Inventory::getItem(int index) const{
+std::string Inventory::operator[](int index) const{
     if (index >= 0 && index < items->size())
         return (*items)[index];
     else
