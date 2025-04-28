@@ -10,16 +10,21 @@
 class Inventory{
 public:
     // Default Constructor
-    Inventory(){
-        capacity = 10;
+    Inventory(){    //constructors do not have a return type, simply the name of the class
+        capacity = 10; //this line could be replaced by making the constructor call "Inventory(): capacity(10){"
         items = new std::vector<std::string>();
     }
 
-    // Overloaded Constructor
-    Inventory(int capacity){
-        this->capacity = capacity;
+
+
+    Inventory(int capacity_i): capacity(capacity_i){ //another way to use the constructor for the same outcome as commented constructor below
         items = new std::vector<std::string>();
-    }
+    }    
+    // Overloaded Constructor
+    //Inventory(int capacity){
+    //    this->capacity = capacity; //keyword "this" refers to the member variable specified, right hand side refers to variable within scope
+    //    items = new std::vector<std::string>();
+    //}
 
     // Destructor
     ~Inventory(){
